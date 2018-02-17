@@ -30,13 +30,13 @@ function Weapon(x) {
 // Entry point
 window.onload = entryPoint;
 
-function entryPoint() {    
+function entryPoint() {  
+	
+	intiMyDOM();
     initBackground();
     clash.initWeapons();
     var T = 1000 / 50;
     clash.timer = setInterval(clash.animate,T);
-    
-    initMyDOM();
     
 };
 function Clash()
@@ -95,14 +95,18 @@ function randomArryInteger(x) {
 function initMyDOM(){
     
     //capshield
-    var bgC = document.getElementById("capshield");
+    var bg = document.getElementById("battlefield");
     var divC1 = document.createElement("div");
+	
+	var bgC = document.createAttribute("id");
+	bgC.value = "capshield";
+	divC1.setAttribute(bgC);
+	
     var attC = document.createAttribute("class");
     var attC2 = document.createAttribute("style");
     attC.value = "superweapon";
     attC2.value = "top: 270px; left: 0px; font-size: 60px";
     
-    bgC.appendChild(divC1);
     divC1.setAttributeNode(attC);
     divC1.setAttributeNode(attC2);
     //bgC.appendChild(divC1);
@@ -110,6 +114,8 @@ function initMyDOM(){
     var letterO = document.createTextNode("O");
     bgC.appendChild(letterO);
     
+	bgC.appendChild(divC1);
+	/*
     //mjolnir
     var bgM = document.getElementById("mjolnir");
     var divM1 = document.createElement("div");
@@ -123,5 +129,5 @@ function initMyDOM(){
     bgM.appendChild(divM1);
     
     var letterT = document.createTextNode("T");
-    bgM.appendChild(letterT);
-}
+    bgM.appendChild(letterT);*/
+};

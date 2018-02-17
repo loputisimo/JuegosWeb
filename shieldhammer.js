@@ -41,15 +41,13 @@ function entryPoint() {
 };
 function Clash()
 {
-	this.sh = undifined;
-	this.mj = undifined;
+	this.shield = undifined;
+	this.mjolnir = undifined;
 	this.timer = x;
-	this.initWeapons = function () 
+	this.initWeapons = function (sh,mj) 
 	{
-		sh = document.getElementById("capshield");
-		clash.shield = new Weapon(sh);
-		mj = document.getElementById("mjolnir");
-		clash.mjolnir = new Weapon(mj);
+		this.shield= new Weapon(sh);
+		this.mjolnir= new Weapon(mj);
 	};
 
 };

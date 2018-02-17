@@ -39,8 +39,11 @@ function entryPoint() {
     initMyDOM();
     
 };
-
-var clash = {shield:undefined, mjolnir:undefined};
+ class Clash 
+ {
+  
+ };
+//var clash = {shield:undefined, mjolnir:undefined};
 clash.timer = undefined;
 
 clash.initWeapons = function () {

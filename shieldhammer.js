@@ -41,7 +41,17 @@ function entryPoint() {
 };
 function Clash()
 {
-    
+	this.sh = undifined;
+	this.mj = undifined;
+	this.timer = x;
+	this.initWeapons = function () 
+	{
+		sh = document.getElementById("capshield");
+		clash.shield = new Weapon(sh);
+		mj = document.getElementById("mjolnir");
+		clash.mjolnir = new Weapon(mj);
+	};
+
 };
 //var clash = {shield:undefined, mjolnir:undefined};
 clash.timer = undefined;

@@ -41,7 +41,7 @@ function entryPoint() {
 };
  class Clash 
  {
-  
+   var sh;
  };
 //var clash = {shield:undefined, mjolnir:undefined};
 clash.timer = undefined;

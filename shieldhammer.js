@@ -39,10 +39,10 @@ function entryPoint() {
     initMyDOM();
     
 };
- class Clash 
- {
-   var sh;
- };
+function Clash()
+{
+    
+};
 //var clash = {shield:undefined, mjolnir:undefined};
 clash.timer = undefined;
 

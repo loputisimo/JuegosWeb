@@ -43,50 +43,44 @@ function Clash()
 {
 	this.shield = undifined;
 	this.mjolnir = undifined;
-	this.timer = x;
-	this.initWeapons = function (sh,mj) 
-	{
-		this.shield= new Weapon(sh);
-		this.mjolnir= new Weapon(mj);
+	this.timer = undifined;
+	
+	get.initWeapons = function () {
+	    var sh = document.getElementById("capshield");
+	    this.shield = new Weapon(sh);
+	    var mj = document.getElementById("mjolnir");
+	    this.mjolnir = new Weapon(mj);
 	};
 
+	get.animate = function () {
+	    get.advanceWeapons();
+	    get.changeBackgroungColor();
+	};
+
+	get.advanceWeapons = function () {
+	    this.shield.move(1);
+	    this.mjolnir.move(-2);
+	    var sh = clash.shield, mj = clash.mjolnir;
+	    if (sh.left + sh.width / 2 > mj.left)
+		clearInterval(clash.timer);
+	};
+
+	get.changeBackgroungColor = function () {
+	    var period;
+	    var sh = clash.shield, mj = clash.mjolnir;
+	    if (sh.left + 2 * sh.width > mj.left)
+		period = 1;
+	    else
+		period = 20;
+	    if (sh.left % period === period - 1) {
+		cIndex = (cIndex + 7) % colors.length;
+		var bg = document.getElementById("battlefield");
+		bg.style.backgroundColor = colors[cIndex];
+	    };
+}
+	
 };
 //var clash = {shield:undefined, mjolnir:undefined};
-clash.timer = undefined;
-
-clash.initWeapons = function () {
-    var sh = document.getElementById("capshield");
-    clash.shield = new Weapon(sh);
-    var mj = document.getElementById("mjolnir");
-    clash.mjolnir = new Weapon(mj);
-};
-
-clash.animate = function () {
-    clash.advanceWeapons();
-    clash.changeBackgroungColor();
-};
-
-clash.advanceWeapons = function () {
-    clash.shield.move(1);
-    clash.mjolnir.move(-2);
-    var sh = clash.shield, mj = clash.mjolnir;
-    if (sh.left + sh.width / 2 > mj.left)
-        clearInterval(clash.timer);
-};
-
-clash.changeBackgroungColor = function () {
-    var period;
-    var sh = clash.shield, mj = clash.mjolnir;
-    if (sh.left + 2 * sh.width > mj.left)
-        period = 1;
-    else
-        period = 20;
-    if (sh.left % period === period - 1) {
-        cIndex = (cIndex + 7) % colors.length;
-        var bg = document.getElementById("battlefield");
-        bg.style.backgroundColor = colors[cIndex];
-    }
-};
 
 function randomArryInteger(x) {
     return Math.floor(Math.random() * x);   

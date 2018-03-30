@@ -1,0 +1,75 @@
+
+
+//Canvas
+var imgTag = new Image();
+var canvas = document.getElementById('icanvas');
+var ctx = canvas.getContext("2d");
+var x = 50;
+var y = 50;
+
+var continueGame = true;
+var rightArrowPressed = false, leftArrowPressed = false, upArrowPressed = false, downArrowPressed = false;
+var seconds, minutes, timeout, theChrono;
+
+imgTag.src = "img/nave.png";   // load image
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);  // clear canvas
+    ctx.drawImage(imgTag, x, y);                       // draw image at current position
+};
+
+//Mover la nave
+var handlerOne = function (event) {
+    switch (event.keyCode) {
+        case 39:
+            if (!rightArrowPressed) {
+                rightArrowPressed = true;
+                x += 5;
+                requestAnimationFrame(animate);
+                console.log('rightArrowPressed');
+            }
+            break;
+        case 37:
+            if (!leftArrowPressed) {
+                leftArrowPressed = true;
+                x -= 5;
+                requestAnimationFrame(animate);
+                console.log('leftArrowPressed');
+            }
+            break;
+        case 38:
+            if (!upArrowPressed) {
+                upArrowPressed = true;
+                y -= 5;
+                requestAnimationFrame(animate);
+                console.log('upArrowPressed');
+            }
+            break;
+        case 40:
+            if (!downArrowPressed) {
+                downArrowPressed = true;
+                y += 5;
+                requestAnimationFrame(animate);
+                console.log('downArrowPressed');
+            }
+            break;
+        default:
+            break;
+    }
+};
+
+window.onload = startGame;
+
+function startGame() {
+    requestAnimationFrame(animate);
+    //gameArea.render();
+
+    if (continueGame) window.document.addEventListener("keydown", handlerOne);
+    //window.document.addEventListener("keyup", handlerTwo);
+    
+    /*
+    seconds = 0;
+    minutes = 0;
+    timeout = window.setTimeout(updateChrono, 1000);
+    theChrono = document.getElementById("chrono");*/
+};
